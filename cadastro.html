@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro - Moda Mendes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h2>Cadastrar</h2>
+    <form onsubmit="cadastrarUsuario(event)">
+      <label for="email">E-mail:</label>
+      <input type="email" id="cadEmail" required>
+      <label for="senha">Senha:</label>
+      <input type="password" id="cadSenha" required>
+      <button type="submit">Cadastrar</button>
+    </form>
+  </main>
+
+  <script>
+    function cadastrarUsuario(event) {
+      event.preventDefault();
+      const email = document.getElementById("cadEmail").value;
+      const senha = document.getElementById("cadSenha").value;
+
+      const usuario = { email, senha };
+      localStorage.setItem("usuario", JSON.stringify(usuario));
+
+      alert("Cadastro realizado! Faça login.");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>

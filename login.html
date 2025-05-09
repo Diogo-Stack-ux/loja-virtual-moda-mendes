@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Moda Mendes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h2>Entrar</h2>
+    <form onsubmit="fazerLogin(event)">
+      <label for="email">E-mail:</label>
+      <input type="email" id="loginEmail" required>
+      <label for="senha">Senha:</label>
+      <input type="password" id="loginSenha" required>
+      <button type="submit">Entrar</button>
+      <p>Ainda não tem conta? <a href="cadastro.html">Cadastrar</a></p>
+    </form>
+  </main>
+
+  <script>
+    function fazerLogin(event) {
+      event.preventDefault();
+      const email = document.getElementById("loginEmail").value;
+      const senha = document.getElementById("loginSenha").value;
+      const user = JSON.parse(localStorage.getItem("usuario"));
+
+      if (user && user.email === email && user.senha === senha) {
+        alert("Login realizado com sucesso!");
+        window.location.href = "index.html";
+      } else {
+        alert("E-mail ou senha inválidos.");
+      }
+    }
+  </script>
+</body>
+</html>

@@ -180,3 +180,24 @@
     padding: 0.9px;
   }
 }
+/* Transição geral para elementos interativos */
+button, a, input, select {
+  transition: all 0.3s ease;
+}
+
+/* Efeito hover suave em botões */
+button:hover {
+  transform: scale(1.05);
+  background-color: #c96a7d;
+}
+
+/* Fade-in ao carregar */
+body {
+  animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+

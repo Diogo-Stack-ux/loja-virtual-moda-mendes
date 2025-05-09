@@ -1,11 +1,56 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Finalizar Compra - Moda Mendes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+  <header>
+    <h1>Moda Mendes</h1>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="carrinho.html">Carrinho 🛒</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Finalizar Compra</h2>
+    <form id="form-finalizar">
+      <label for="nome">Nome completo:</label>
+      <input type="text" id="nome" required>
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" required>
+
+      <label for="endereco">Endereço:</label>
+      <input type="text" id="endereco" required>
+
+      <label for="pagamento">Método de pagamento:</label>
+      <select id="pagamento" required>
+        <option value="">Selecione</option>
+        <option value="pix">PIX</option>
+        <option value="boleto">Boleto</option>
+        <option value="cartao">Cartão de Crédito</option>
+      </select>
+
+      <button type="submit">Finalizar Pedido</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Moda Mendes</p>
+  </footer>
+
+  <script>
+    document.getElementById("form-finalizar").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Compra finalizada com sucesso! Obrigado por comprar na Moda Mendes 💖");
+      localStorage.removeItem("carrinho"); // limpa o carrinho
+      window.location.href = "index.html";
+    });
+  </script>
 </body>
 </html>

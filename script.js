@@ -63,57 +63,56 @@ const todosProdutos = [
     renderizarProdutos(todosProdutos);
   }
   
-  // Função para adicionar ao carrinho
+ // Função para adicionar ao carrinho
+function adicionarAoCarrinho(id) {
+  const produto = todosProdutos.find(p => p.id === id);
+  let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-  function adicionarAoCarrinho(id) {
-    const produto = todosProdutos.find(p => p.id === id);
-    let carrinho = JSON.parse(localStorange.getItem("carrinho")) || [];
-    carrinho.push(produto);
-    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  carrinho.push(produto);
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
 
-    alert("Produto adicionado ao carrinho! ID: " + id);
-  }
+  alert("Produto adicionado ao carrinho!");
+}
 
-  //função para carregar carrinho
-
-  function carregarCarrinho() {
-    const container = document.getElementById("itens-carrinho");
+// Função para carregar carrinho
+function carregarCarrinho() {
+  const container = document.getElementById("itens-carrinho");
   const totalEl = document.getElementById("total");
 
   if (!container || !totalEl) return;
 
   const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-  if(carrinho.length === 0) {
-    container.innerHTML = "<p>seu carrinho está vazio.</p>";
+  if (carrinho.length === 0) {
+    container.innerHTML = "<p>Seu carrinho está vazio.</p>";
     totalEl.textContent = "Total: R$ 0,00";
     return;
   }
-  
- container.innerHTML = "";
- let total = 0;
 
- carrinho.forEach((produto, index) =>{
-  total += produto.preco;
+  container.innerHTML = "";
+  let total = 0;
 
-  const div = document.createElement("div");
-  div.classList.add("produto");
-  div.innerHTML = `
-  <img src="${produto.imagem}" alt="${produto.nome}" />
-  <h3>${produto.nome}</h3>
-  <p>R$ ${produto.preco.toFixed(2)}</p>
-  <button onclick="removerDoCarrinho(${index})">Remover</button>
-`;
- 
-container.appendChild(div);
- });
- totalEl.textContent = `Total: R$ ${total.toFixed(2)}`;
+  carrinho.forEach((produto, index) => {
+    total += produto.preco;
+
+    const div = document.createElement("div");
+    div.classList.add("produto");
+    div.innerHTML = `
+      <img src="${produto.imagem}" alt="${produto.nome}" />
+      <h3>${produto.nome}</h3>
+      <p>R$ ${produto.preco.toFixed(2)}</p>
+      <button onclick="removerDoCarrinho(${index})">Remover</button>
+    `;
+    container.appendChild(div);
+  });
+
+  totalEl.textContent = `Total: R$ ${total.toFixed(2)}`;
 }
 
-//função para remover item
+// Função para remover item
 function removerDoCarrinho(index) {
   let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-  carrinho.splice(index,1);
+  carrinho.splice(index, 1);
   localStorage.setItem("carrinho", JSON.stringify(carrinho));
   carregarCarrinho();
 }
