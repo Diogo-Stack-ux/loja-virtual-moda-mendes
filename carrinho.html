@@ -31,6 +31,13 @@
         <p>&copy; 2025 Carrinho-Moda Mendes. Todos os direitos reservados.</p>
     </footer>
 
+   <script>
+  const user = JSON.parse(localStorage.getItem("usuarioLogado"));
+  if (!user) {
+    alert("Você precisa estar logado para acessar esta página.");
+    window.location.href = "login.html";
+  }
+</script>
     <script src="script.js"></script>
 </body>
 </html>

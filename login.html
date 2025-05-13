@@ -26,11 +26,10 @@
       const user = JSON.parse(localStorage.getItem("usuario"));
 
       if (user && user.email === email && user.senha === senha) {
-        alert("Login realizado com sucesso!");
-        window.location.href = "index.html";
-      } else {
-        alert("E-mail ou senha inválidos.");
-      }
+  localStorage.setItem("usuarioLogado", JSON.stringify(user));
+  alert("Login realizado com sucesso!");
+  window.location.href = "index.html";
+  }      
     }
   </script>
 </body>

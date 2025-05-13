@@ -200,4 +200,67 @@ body {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+/*contatos*/
+.contato-links {
+  margin:20px 0;
+}
+.contat-links a {
+  display:block;
+  margin:10px 0;
+  font-size:1.1rem;
+  color:#b74f6f;
+  text-decoration:none;
+  font-weight:bold;
+  transition:0.3s;
+}
+.contato-links a:hover {
+  color:#a03759;
+  text-decoration:underline;
+}
+.form contato {
+  margin-top:20px;
+  max-width: 400px;
+}
+textarea {
+  width:100%;
+  padding: 10px;
+  border:2px solid #ccc;
+  border-radius: 8px;
+  font-family:inherit;
+  resize:none;
+  margin-bottom:10px;
+}
+.form-contato button {
+  background-color: #b74f6f;
+  color:white;
+  border:none;
+  padding:10px 20px;
+  border-radius: 8px;
+  cursor:pointer;
+}
+.form-contato button:hover {
+  background-color: #9e3d5c;
+}
+/* Whatsapp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: 60px;
+  height: 60px;
+}
+
+.whatsapp-float img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float img:hover {
+  transform: scale(1.1);
+}
+
 

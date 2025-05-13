@@ -5,6 +5,7 @@
   <title>Finalizar Compra - Moda Mendes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  
 </head>
 <body>
   <header>
@@ -13,6 +14,11 @@
       <a href="index.html">Início</a>
       <a href="produtos.html">Produtos</a>
       <a href="carrinho.html">Carrinho 🛒</a>
+      <a href="login.html">Login</a>
+      <a href="cadastro.html">Cadastro</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+
     </nav>
   </header>
 
@@ -52,5 +58,13 @@
       window.location.href = "index.html";
     });
   </script>
+  <script>
+  const user = JSON.parse(localStorage.getItem("usuarioLogado"));
+  if (!user) {
+    alert("Você precisa estar logado para acessar esta página.");
+    window.location.href = "login.html";
+  }
+</script>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -19,6 +19,8 @@
                 <li><a href="contato.html">Contato</a></li>
                 <li><a href="login.html">Login</a></li>
                 <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="finalizar.html">Finalizar Compra</a></li>
+                <li><a href="faq.html">FAQ"></a></li>
             </ul>
         </nav>
     </header>
@@ -34,6 +36,32 @@
     <footer>
         <p>&copy; 2025 Moda Mendes. Todos os direitos reservados.</p>
     </footer>
+    <script>
+  const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+  if (usuario) {
+    const nav = document.querySelector("nav");
+    const span = document.createElement("span");
+    span.textContent = `Olá, ${usuario.email}`;
+    span.style.marginLeft = "10px";
+    nav.appendChild(span);
+
+    const logout = document.createElement("a");
+    logout.textContent = "Sair";
+    logout.href = "#";
+    logout.style.marginLeft = "10px";
+    logout.onclick = () => {
+      localStorage.removeItem("usuarioLogado");
+      window.location.reload();
+    };
+    nav.appendChild(logout);
+  }
+</script>
     <script src="script.js"></script>
+
+    <a href="https://wa.me/55199979650875" class="whatsapp-float" target="_blank" title="Fale conosco no WhatsApp">
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+</a>
+
+     
 </body>
 </html>
