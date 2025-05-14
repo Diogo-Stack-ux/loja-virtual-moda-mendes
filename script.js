@@ -75,18 +75,17 @@ function adicionarAoCarrinho(id) {
 }
 
 // Função para carregar carrinho
-function carregarCarrinho() {
-  const container = document.getElementById("itens-carrinho");
-  const totalEl = document.getElementById("total");
+function adicionarAoCarrinho(id) {
+  const produto = todosProdutos.find(p => p.id === id);
+  let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-  if (!container || !totalEl) return;
+  carrinho.push(produto);
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
 
-  const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-
-  if (carrinho.length === 0) {
-    container.innerHTML = "<p>Seu carrinho está vazio.</p>";
-    totalEl.textContent = "Total: R$ 0,00";
-    return;
+  // Mostra a mensagem com o link
+  const mensagem = document.getElementById("mensagem-carrinho");
+  if (mensagem) {
+    mensagem.style.display = "block";
   }
 
   container.innerHTML = "";
@@ -113,9 +112,48 @@ function carregarCarrinho() {
 function removerDoCarrinho(index) {
   let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
   carrinho.splice(index, 1);
-  localStorage.setItem("carrinho", JSON.stringify(carrinho));
-  carregarCarrinho();
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));// Atualiza
+  carregarCarrinho(); // Atualiza a exibição
 }
+
+// Função para carregar carrinho//
+function carregarCarrinho() {
+  const container = document.getElementById("itens-carrinho");
+  const totalEl = document.getElementById("total");
+
+  // Garante que os elementos existem na página
+  if (!container || !totalEl) return;
+
+  const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+  // Se carrinho estiver vazio
+  if (carrinho.length === 0) {
+    container.innerHTML = "<p>Seu carrinho está vazio.</p>";
+    totalEl.textContent = "Total: R$ 0,00";
+    return;
+  }
+
+  // Se tiver itens, renderiza
+  container.innerHTML = "";
+  let total = 0;
+
+  carrinho.forEach((produto, index) => {
+    total += produto.preco;
+
+    const div = document.createElement("div");
+    div.classList.add("produto");
+    div.innerHTML = `
+      <img src="${produto.imagem}" alt="${produto.nome}" style="width:100px; height:auto;">
+      <h3>${produto.nome}</h3>
+      <p>R$ ${produto.preco.toFixed(2)}</p>
+      <button onclick="removerDoCarrinho(${index})">Remover</button>
+    `;
+    container.appendChild(div);
+  });
+
+  totalEl.textContent = `Total: R$ ${total.toFixed(2)}`;
+}
+
 
 // Carregar automaticamente se for a página do carrinho
 if (document.getElementById("itens-carrinho")) {

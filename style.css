@@ -262,5 +262,67 @@ textarea {
 .whatsapp-float img:hover {
   transform: scale(1.1);
 }
+/* faq, perguntas frequentes */
+.faq {
+  max-width:800px;
+  margin:20px auto;
+  padding: 10px;
+}
+
+details{
+  margin-bottom:15px;
+  border: 1px solid  #d89aa7;
+  border-radius: 8px;
+  padding:10px;
+  background: #fff7f9;
+  cursor:pointer; 
+}
+summary{
+  font-weight:bold;
+  color:#b74f6f;
+  font-size: 1.1rem;
+}
+details[open] {
+  background-color: #fbe9ee;
+}
+details p {
+  margin-top: 10px;
+  color: #333;
+}
 
 
+/*barra de busca FAQ*/
+
+
+#buscaFAQ {
+  width:100%;
+  max-width:400px;
+  padding:10px;
+  margin:10px auto 20px;
+  display: block;
+  border: 1px solid #d89aa7;
+  border-radius: 8px;
+  font-size: 1rem;
+
+}
+/* pagina sobre nós*/
+
+.sobre {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 0 15px;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.sobre h2 {
+  color: #b74f6f;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.sobre p {
+  margin-bottom: 16px;
+  text-align: justify;
+}

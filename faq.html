@@ -20,6 +20,7 @@
   </header>
 
   <main>
+    <input type="text" id="buscaFAQ" placeholder="Buscar..." oninput="filtrarFAQ()" />
     <h2>Perguntas Frequentes💬</h2>
 
     <div class="faq">
@@ -47,5 +48,17 @@
   <footer>
     <p>&copy; 2025 Moda Mendes. Todos os direitos reservados.</p>
   </footer>
+
+  <script>
+    function filtrarFAQ() {
+      const input = document.getElementbyld("buscaFAQ").value.tolowerCase();
+      const detalhes = document.querySelectorAll("details");
+
+      detalhes.forEach((detalhe) => {
+        const texto = detalhe.textContent.toLowerCase();
+      detalhe.style.display = texto.includes(input) ? "block" : "none";
+      });
+    }
+  </script>
 </body>
 </html>
