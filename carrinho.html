@@ -1,43 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrinho-Moda Mendes</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carrinho - Moda Mendes</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1>Carrinho-Moda Mendes</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="produtos.html">Produtos</a>
-            <a href="carrinho.html">Carrinho</a>
-            <a href="sobre.html">Sobre</a>
-            <a href="contato.html">Contato</a>
-            <a href="login.html">Login</a>
-            <a href="cadastro.html">Cadastro</a>
-        </nav>
-    </header>
+  <header>
+    <h1>Moda Mendes</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="carrinho.html">Carrinho</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+      <a href="login.html">Login</a>
+      <a href="cadastro.html">Cadastro</a>
+      <a href="finalizar.html">Finalizar Compra</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+  </header>
 
-    <main>
-        <h2>Seu Carrinho</h2>
-        <div id="itens-carrinho"></div>
-        <h3 id="total">Total: R$0,00</h3>
-        <button id="finalizar-compra">Finalizar Compra</button>
-    </main>
+  <main>
+    <h2>Seu Carrinho</h2>
+    <div id="itens-carrinho"></div>
+    <h3 id="total">Total: R$ 0,00</h3>
+    <a href="finalizar.html" class="btn-finalizar">Finalizar Compra</a>
+  </main>
 
-    <footer>
-        <p>&copy; 2025 Carrinho-Moda Mendes. Todos os direitos reservados.</p>
-    </footer>
+  <footer>
+    <p>&copy; 2025 Moda Mendes. Todos os direitos reservados.</p>
+  </footer>
 
-   <script>
-  const user = JSON.parse(localStorage.getItem("usuarioLogado"));
-  if (!user) {
-    alert("Você precisa estar logado para acessar esta página.");
-    window.location.href = "login.html";
-  }
-</script>
-    <script src="script.js"></script>
+  <script>
+    const user = JSON.parse(localStorage.getItem("usuarioLogado"));
+    if (!user) {
+      alert("Você precisa estar logado para acessar esta página.");
+      window.location.href = "login.html";
+    }
+  </script>
+  <script src="script.js"></script>
 </body>
 </html>
